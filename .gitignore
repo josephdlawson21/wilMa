@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-/node_modules
-.package-lock.json
-/backend/server/node_modules
-/backend/server/.package-lock.json
-.DS_Store
+
 =======
 .DS_STORE
 node_modules
