@@ -2,7 +2,7 @@
   "name": "project-template-no-db",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.jsx",
   "scripts": {
     "start": "npm-run-all --parallel watch:server watch:build",
     "watch:build": "webpack -d --watch --progress --colors",
