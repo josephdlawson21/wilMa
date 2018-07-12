@@ -9,3 +9,8 @@
   width: 100px;
   height: 100px;
 }
+
+.sliderDiv {
+  display: flex !important;
+  justify-content: center !important;
+}

@@ -15,7 +15,7 @@ import { Button,
 
 import Dropzone from 'react-dropzone'
 
-import Slider from "react-slick";
+import SimpleSlider from "../microcomponents/slider";
 
 
 
@@ -56,13 +56,7 @@ class App extends Component {
   }
 
   render() {
-    var settings = {
-      dots: true,
-      infinite: true,
-      speed: 500,
-      slidesToShow: 2,
-      slidesToScroll: 1
-    }
+
     return(
         <div>
           {this.checkLogin()}
@@ -72,26 +66,7 @@ class App extends Component {
             hello {localStorage.name}
           </div>
 
-          <Slider {...settings}>
-            <div>
-              <h3>1</h3>
-            </div>
-            <div>
-              <h3>2</h3>
-            </div>
-            <div>
-              <h3>3</h3>
-            </div>
-            <div>
-              <h3>4</h3>
-            </div>
-            <div>
-              <h3>5</h3>
-            </div>
-            <div>
-              <h3>6</h3>
-            </div>
-          </Slider>
+          <SimpleSlider/>
 
           <div>
             sselect some dependets and what they get
