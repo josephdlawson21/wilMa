@@ -1,11 +1,11 @@
 
-=======
 .DS_STORE
 node_modules
 scripts/flow/*/.flowconfig
 *~
 *.pyc
 .grunt
+package-lock.json
 _SpecRunner.html
 __benchmarks__
 build/
@@ -25,4 +25,3 @@ chrome-user-data
 .vscode
 *.swp
 *.swo
->>>>>>> f9a32e26a815e71b5f097eadd028a284796c4f23
