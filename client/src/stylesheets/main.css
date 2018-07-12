@@ -3,3 +3,9 @@
 .logInContent {
   margin-left: 45%;
 }
+
+.dropzone {
+  background-color: green;
+  width: 100px;
+  height: 100px;
+}
