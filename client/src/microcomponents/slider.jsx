@@ -18,10 +18,12 @@ class SimpleSlider extends React.Component {
           </iframe>
         </div>
         <div className="sliderDiv">
-          <h3>3</h3>
+          <video type="video/mp4" controls>
+            <source src="https://ipfs.infura.io/ipfs/QmQUQh7pgxmSQBUYb8wnJY95aSZXzA6B9JkwTjsBcgTvoS" type="video/mp4"/>
+          </video>
         </div>
-        <div>
-          <h3>4</h3>
+        <div className="sliderDiv">
+          <embed width="100%" height="300px" name="plugin" id="plugin" src="https://ipfs.infura.io/ipfs/QmQkGojWVKm1PuywNqhs3Du2qi5ctWR82jnSp7KQy9qQF3" type="application/pdf" internalinstanceid="7"/>
         </div>
         <div>
           <h3>5</h3>
