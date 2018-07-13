@@ -6,31 +6,29 @@ import Slider from "react-slick";
 class SimpleSlider extends React.Component {
   render() {
     var settings = {
-      adaptiveHeight: true
+      dots: true,
+      infinite: true,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      centerMode: true
     };
     return (
       <Slider {...settings}>
-        <div className="sliderDiv" >
-          <img  src={require('./will.png')} alt=""/>
+        <div className="treasureDiv" >
+          <img  src="http://www.palacepointe.com/wp-content/uploads/2016/01/adult-birthday-parties.jpg" alt=""/>
         </div>
-        <div className="sliderDiv">
-          <iframe width="420" height="315"
-          src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=1">
+        <div className="treasureDiv">
+          <iframe width="400" height="400"
+          src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=0">
           </iframe>
         </div>
-        <div className="sliderDiv">
-          <video type="video/mp4" controls>
+        <div className="treasureDiv">
+          <video className="video" type="video/mp4" controls>
             <source src="https://ipfs.infura.io/ipfs/QmQUQh7pgxmSQBUYb8wnJY95aSZXzA6B9JkwTjsBcgTvoS" type="video/mp4"/>
           </video>
         </div>
-        <div className="sliderDiv">
-          <embed width="100%" height="600px" name="plugin" id="plugin" src="https://ipfs.infura.io/ipfs/QmQkGojWVKm1PuywNqhs3Du2qi5ctWR82jnSp7KQy9qQF3" type="application/pdf" internalinstanceid="7"/>
-        </div>
-        <div>
-          <h3>5</h3>
-        </div>
-        <div>
-          <h3>6</h3>
+        <div className="treasureDiv">
+          <embed width="400" height="450px" name="plugin" id="plugin" src="https://ipfs.infura.io/ipfs/QmQkGojWVKm1PuywNqhs3Du2qi5ctWR82jnSp7KQy9qQF3" type="application/pdf" internalinstanceid="7"/>
         </div>
       </Slider>
     );

@@ -125,7 +125,10 @@ class App extends Component {
     )
   }
   renderWill = () => {
-    return <div>will</div>
+    return (<div className="willDiv">
+              <embed width="600px" height="600px" name="plugin" id="plugin" src="https://ipfs.infura.io/ipfs/QmRKvRDwtSWy68qncZ5pbXSQib1a6QmwX55YzaqMhQ8qpM" type="application/pdf" internalinstanceid="7"/>
+              <img className="addeWillButton" src={require('../../public/assets/addItem.png')} alt=""/>
+            </div>)
   }
   renderDigital = () => {
     return (
@@ -136,7 +139,12 @@ class App extends Component {
     )
   }
   renderTreasure = () => {
-    return <div>treasure</div>
+    return (
+      <div>
+        <SimpleSlider/>
+        <img className="addBenefactorButton" src={require('../../public/assets/addTreasure.png')} alt=""/>
+      </div>
+    )
   }
 
   handleClick = (e) => {
@@ -148,10 +156,10 @@ class App extends Component {
   renderBubbles = () => {
     return (
       <div>
-        <img className="dashboardButton" id='friends' src={require('../../public/assets/dashboardButton.png')} onClick={this.handleClick} />
-        <img className="treasureChestButton" id='will' src={require('../../public/assets/treasureChestButton.png')} onClick={this.handleClick} />
-        <img className="circlesButton" id="digital" src={require('../../public/assets/circlesButton.png')} onClick={this.handleClick} />
-        <img className="circlesButton" id='treasure' src={require('../../public/assets/circlesButton.png')} onClick={this.handleClick} />
+        <img className="dashboardButton" id='friends' src={require('../../public/assets/People.png')} onClick={this.handleClick} />
+        <img className="treasureChestButton" id='will' src={require('../../public/assets/myWill.png')} onClick={this.handleClick} />
+        <img className="circlesButton" id="digital" src={require('../../public/assets/digital.png')} onClick={this.handleClick} />
+        <img className="circlesButton" id='treasure' src={require('../../public/assets/treasureChest.png')} onClick={this.handleClick} />
       </div>
     )
   }
