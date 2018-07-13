@@ -61,6 +61,11 @@ class LogInPage extends Component{
 		return (
 			<div className="logInContent" >
 				{this.state.loggedIn ? <Redirect to="/home" /> : null }
+				<div className="header">
+					<div>
+
+					</div>
+				</div>
 				<h2>LogIn</h2>
 				<Form className="auth-form">
 					<Row>

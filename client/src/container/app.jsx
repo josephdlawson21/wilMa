@@ -1,22 +1,21 @@
-import React, { Component } from "react";
-import { Route, Redirect } from "react-router";
-import {
-  Button,
-  Form,
-  Col,
-  Column,
-  Row,
-  Table,
-  FormGroup,
-  ControlLabel,
-  Navbar,
-  Nav,
-  NavItem,
-  NavDropdown,
-  MenuItem
-} from "react-bootstrap";
+import React, { Component }                 from 'react';
+import { Route, Redirect } from 'react-router'
+import { Button,
+    		 Form,
+    		 Col,
+    		 Column,
+    		 Row,
+         Table,
+    		 FormGroup,
+    		 ControlLabel,
+         Navbar,
+         Nav,
+         Modal,
+         NavItem,
+         NavDropdown,
+         MenuItem}					 from 'react-bootstrap';
 
-import Dropzone from "react-dropzone";
+import Dropzone from 'react-dropzone'
 
 import SimpleSlider from "../microcomponents/slider";
 import FriendSlider from "../microcomponents/friendSlider";
@@ -28,28 +27,25 @@ class App extends Component {
   state = {
     showTreasure: false,
     mode: "friends",
-    friends: [
-      {
-        src:
-          "https://srkheadshotday.com/wp-content/uploads/Mike_Fitzgibbons_Headshot_15E4437.jpg",
-        name: "John Williams",
-        email: "Jwilliams@gmail.com",
-        relationship: "Brother"
-      },
-      {
-        src:
-          "https://srkheadshotday.com/wp-content/uploads/Michael_Schwarz_Headshot_1A1704.jpg",
-        name: "Bill Williams",
-        email: "Bwilliams@gmail.com",
-        relationship: "uncle"
-      },
-      {
-        src:
-          "https://srkheadshotday.com/wp-content/uploads/Isabelle_Pawlik_Headshot_16C3282_SQ1.jpg",
-        name: "Chloe Williams",
-        email: "Cwilliams@gmail.com",
-        relationship: "wife"
-      }
+    show: false,
+    friends: [ {
+      "src": "https://srkheadshotday.com/wp-content/uploads/Mike_Fitzgibbons_Headshot_15E4437.jpg",
+      "name": "John Williams",
+      "email": "Jwilliams@gmail.com",
+      "relationship": "Brother"
+    },
+    {
+      "src": "https://srkheadshotday.com/wp-content/uploads/Michael_Schwarz_Headshot_1A1704.jpg",
+      "name": "Bill Williams",
+      "email": "Bwilliams@gmail.com",
+      "relationship": "uncle"
+    },
+    {
+      "src": "https://srkheadshotday.com/wp-content/uploads/Isabelle_Pawlik_Headshot_16C3282_SQ1.jpg",
+      "name": "Chloe Williams",
+      "email": "Cwilliams@gmail.com",
+      "relationship": "wife"
+    }
     ],
     digital: [
       {
@@ -111,49 +107,136 @@ class App extends Component {
         break;
       default:
     }
-  };
+  }
+
+  handleModalInfo = () => {
+    switch (this.state.mode) {
+      case "friends":
+        return (
+          <div className="friendsModalInfo">
+            <h2>Add a Benificiary</h2>
+            <label>Full Name</label>
+            <br/>
+            <input className="friendDivName" type="text" />
+            <br/>
+            <label>Email</label>
+            <br/>
+            <input className="friendDivName" type="text" />
+            <br/>
+            <label>Relationship</label>
+            <br/>
+            <input className="friendDivName" type="text" />
+            <br/>
+            <br/>
+            <select className="friendDivName">
+              <option >Uncle</option>
+              <option >husband</option>
+              <option >brother</option>
+              <option >sister</option>
+            </select>
+          </div>
+        )
+        break;
+      case "digital":
+        return (
+          <div className="friendsModalInfo">
+            <h2>Add a Service</h2>
+            <label>Service Name</label>
+            <br/>
+            <input className="friendDivName" type="text"/>
+            <br/>
+            <label>User Name</label>
+            <br/>
+            <input className="friendDivName" type="text"/>
+            <br/>
+            <label>Password</label>
+            <br/>
+            <input className="friendDivName" type="password" />
+            <br/>
+            <label>Confirm Password</label>
+            <br/>
+            <input className="friendDivName" type="password"/>
+            <br/>
+            <label>Benieficiary</label>
+            <br/>
+            <select className="friendDivName">
+              <option >Bill Stweart</option>
+              <option >John Mayer</option>
+              <option >Phillip Morisson</option>
+              <option >Jimmy Page</option>
+            </select>
+          </div>
+        )
+        break;
+      case "treasure":
+        return (
+          <div className="friendsModalInfo">
+            <h2>Add A Treasure</h2>
+
+            <label>Type of Media</label>
+            <br/>
+            <select className="friendDivName">
+              <option >Video</option>
+              <option >Pdf</option>
+              <option >Picture</option>
+            </select>
+            <br/>
+            <label>Benieficiary</label>
+            <br/>
+            <select className="friendDivName">
+              <option >Bill Stweart</option>
+              <option >John Mayer</option>
+              <option >Phillip Morisson</option>
+              <option >Jimmy Page</option>
+            </select>
+            <br/>
+            <br/>
+            <label> Upload Here</label>
+            <Dropzone className="dropzone" onDrop={this.onDrop.bind(this)}>
+               <h5>Drag and Drop or Click</h5>
+               <p></p>
+             </Dropzone>
+          </div>
+        )
+        break;
+      case "will":
+        return (
+          <div className="friendsModalInfo">
+            <h2>Upload the completed Will</h2>
+            <br/>
+            <Dropzone className="dropzone" onDrop={this.onDrop.bind(this)}>
+               <h5>Drag and Drop or Click</h5>
+               <p></p>
+             </Dropzone>
+          </div>
+        )
+        break;
+      default:
+
+    }
+  }
+
+
 
   renderFriends = () => {
     return (
       <div>
         <FriendSlider friends={this.state.friends} />
-        <img
-          className="addBenefactorButton"
-          src={require("../../public/assets/addBenefactor.png")}
-          alt=""
-        />
+        <img className="addBenefactorButton" onClick={this.handleShow} src={require('../../public/assets/addBenefactor.png')} alt=""/>
       </div>
     );
   };
   renderWill = () => {
-    return (
-      <div className="willDiv">
-        <embed
-          width="600px"
-          height="600px"
-          name="plugin"
-          id="plugin"
-          src="https://ipfs.infura.io/ipfs/QmRKvRDwtSWy68qncZ5pbXSQib1a6QmwX55YzaqMhQ8qpM"
-          type="application/pdf"
-          internalinstanceid="7"
-        />
-        <img
-          className="addeWillButton"
-          src={require("../../public/assets/addItem.png")}
-          alt=""
-        />
-      </div>
-    );
-  };
+    return (<div className="willDiv">
+              <embed width="600px" height="600px" name="plugin" id="plugin" src="https://ipfs.infura.io/ipfs/QmRKvRDwtSWy68qncZ5pbXSQib1a6QmwX55YzaqMhQ8qpM" type="application/pdf" internalinstanceid="7"/>
+              <img onClick={this.handleShow}  className="addeWillButton" src={require('../../public/assets/addItem.png')} alt=""/>
+            </div>)
+  }
   renderDigital = () => {
     return (
       <div>
         <DigitalSlider digital={this.state.digital} />
-        <img
-          className="addBenefactorButton"
-          src={require("../../public/assets/addService.png")}
-          alt=""
-        />
+        <img onClick={this.handleShow}  className="addBenefactorButton" src={require('../../public/assets/addService.png')} alt=""/>
       </div>
     );
   };
@@ -161,17 +244,21 @@ class App extends Component {
   renderTreasure = () => {
     return (
       <div>
-        <SimpleSlider />
-        <img
-          className="addBenefactorButton"
-          src={require("../../public/assets/addTreasure.png")}
-          alt=""
-        />
+        <SimpleSlider/>
+        <img onClick={this.handleShow}  className="addBenefactorButton" src={require('../../public/assets/addTreasure.png')} alt=""/>
       </div>
     );
   };
 
-  handleClick = e => {
+  handleClose = () => {
+    this.setState({ show: false });
+  }
+
+  handleShow = () => {
+    this.setState({ show: true });
+  }
+
+  handleClick = (e) => {
     this.setState({
       mode: e.target.id
     });
@@ -215,105 +302,37 @@ class App extends Component {
   };
 
   render() {
-    return (
-      <div>
-        {this.checkLogin()}
 
-        <div className="app">
-          <Row>
-            <Col md={12} className="titleName">
-              <img
-                className="logoName"
-                src={require("../../public/assets/Logo.png")}
-              />
-            </Col>
-          </Row>
-          <Row>
-            <Col md={1} className="bubblesDiv">
-              {this.renderBubbles()}
-            </Col>
-            <Col md={10} className="willOverview">
-              {this.handleRoute()}
-              {/* <Row>
-                  <Col md={6}>
-                    <div>MY WILL OVERVIEW</div>
-                    <div>last edited by you</div>
-                    <div>7/13/2018</div>
-                  </Col>
-                  <Col md={6} className="willOverviewInnerDiv">
-                    <div>34 Assets</div>
-                    <div>in your will</div>
-                  </Col>
-                </Row>
-                <Row>
-                  <Col md={8} className="willTable">
-                    <Table responsive>
-                      <tbody>
-                        <tr>
-                          <td>1</td>
-                          <td>House</td>
-                          <td>10/21/92</td>
-                          <td>Masha Williams</td>
-                        </tr>
-                        <tr>
-                          <td>2</td>
-                          <td>House</td>
-                          <td>10/21/92</td>
-                          <td>Masha Williams</td>
-                        </tr>
-                        <tr>
-                          <td>3</td>
-                          <td>House</td>
-                          <td>10/21/92</td>
-                          <td>Masha Williams</td>
-                        </tr>
-                        <tr>
-                          <td>4</td>
-                          <td>House</td>
-                          <td>10/21/92</td>
-                          <td>Masha Williams</td>
-                        </tr>
-                        <tr>
-                          <td>5</td>
-                          <td>House</td>
-                          <td>10/21/92</td>
-                          <td>Masha Williams</td>
-                        </tr>
-                        <tr>
-                          <td>5</td>
-                          <td>House</td>
-                          <td>10/21/92</td>
-                          <td>Masha Williams</td>
-                        </tr>
-                      </tbody>
-                    </Table>
-                  </Col>
-                  <Col md={4}>
-                    <div>
-                      stuff
-                    </div>
-                  </Col>
-                </Row> */}
-            </Col>
-            {/* <Col md={5} className="rightCloumn" >
-                <Row className="digitalShit">
-                  digital Shit
-                </Row>
-                <Row className="memories">
-                  Memories
-                </Row>
-              </Col> */}
-          </Row>
+    return(
+        <div>
+          {this.checkLogin()}
 
-          {/* <Row>
-              <Col md={5} mdOffset={1} className="willDetails">
-                will Details
+          <div className='app'>
+            <Row>
+              <Col md={12} className="titleName">
+                <img className="logoName" src={require('../../public/assets/Logo.png')}/>
               </Col>
-              <Col md={1} mdOffset={8} className="idkButton">
-                <img className="addIcon" src={require("../../public/assets/addIcon.png")}/>
+            </Row>
+            <Row>
+              <Col md={1} className="bubblesDiv">
+                {this.renderBubbles()}
               </Col>
-            </Row> */}
-        </div>
+              <Col md={10} className="willOverview">
+                {this.handleRoute()}
+
+              </Col>
+
+            </Row>
+
+            <Modal show={this.state.show} onHide={this.handleClose}>
+              <Modal.Body>
+                {this.handleModalInfo()}
+              </Modal.Body>
+              <Modal.Footer>
+                <Button onClick={this.handleClose}>upload</Button>
+                <Button onClick={this.handleClose}>Close</Button>
+              </Modal.Footer>
+            </Modal>
 
         {/* {this.state.showTreasure ?
             <div>

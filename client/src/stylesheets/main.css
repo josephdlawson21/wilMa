@@ -13,8 +13,8 @@ html * {
 }
 
 .dropzone {
-  background-color: green;
-  width: 100px;
+  background-color: rgba(235, 235, 235);
+  width: 347px;
   height: 100px;
 }
 
@@ -92,6 +92,10 @@ html * {
   margin-top: 0px;
   height: 40px;
   width: 347px;
+}
+
+.friendsModalInfo {
+  margin-left: 80px;
 }
 
 .friendPic {
