@@ -1,194 +1,240 @@
-import React, { Component }                 from 'react';
-import { Route, Redirect } from 'react-router'
-import { Button,
-    		 Form,
-    		 Col,
-    		 Column,
-    		 Row,
-         Table,
-    		 FormGroup,
-    		 ControlLabel,
-         Navbar,
-         Nav,
-         NavItem,
-         NavDropdown,
-         MenuItem}					 from 'react-bootstrap';
+import React, { Component } from "react";
+import { Route, Redirect } from "react-router";
+import {
+  Button,
+  Form,
+  Col,
+  Column,
+  Row,
+  Table,
+  FormGroup,
+  ControlLabel,
+  Navbar,
+  Nav,
+  NavItem,
+  NavDropdown,
+  MenuItem
+} from "react-bootstrap";
 
-import Dropzone from 'react-dropzone'
+import Dropzone from "react-dropzone";
 
 import SimpleSlider from "../microcomponents/slider";
 import FriendSlider from "../microcomponents/friendSlider";
 import DigitalSlider from "../microcomponents/digitalSlider";
 import TreasureSlider from "../microcomponents/treasureSlider";
-
-
+import ChatStream from "../microcomponents/chatStream";
 
 class App extends Component {
-
   state = {
     showTreasure: false,
     mode: "friends",
-    friends: [ {
-      "src": "https://srkheadshotday.com/wp-content/uploads/Mike_Fitzgibbons_Headshot_15E4437.jpg",
-      "name": "John Williams",
-      "email": "Jwilliams@gmail.com",
-      "relationship": "Brother"
-    },
-    {
-      "src": "https://srkheadshotday.com/wp-content/uploads/Michael_Schwarz_Headshot_1A1704.jpg",
-      "name": "Bill Williams",
-      "email": "Bwilliams@gmail.com",
-      "relationship": "uncle"
-    },
-    {
-      "src": "https://srkheadshotday.com/wp-content/uploads/Isabelle_Pawlik_Headshot_16C3282_SQ1.jpg",
-      "name": "Chloe Williams",
-      "email": "Cwilliams@gmail.com",
-      "relationship": "wife"
-    }
+    friends: [
+      {
+        src:
+          "https://srkheadshotday.com/wp-content/uploads/Mike_Fitzgibbons_Headshot_15E4437.jpg",
+        name: "John Williams",
+        email: "Jwilliams@gmail.com",
+        relationship: "Brother"
+      },
+      {
+        src:
+          "https://srkheadshotday.com/wp-content/uploads/Michael_Schwarz_Headshot_1A1704.jpg",
+        name: "Bill Williams",
+        email: "Bwilliams@gmail.com",
+        relationship: "uncle"
+      },
+      {
+        src:
+          "https://srkheadshotday.com/wp-content/uploads/Isabelle_Pawlik_Headshot_16C3282_SQ1.jpg",
+        name: "Chloe Williams",
+        email: "Cwilliams@gmail.com",
+        relationship: "wife"
+      }
     ],
-    digital: [ {
-      "src": require('../../public/assets/facebookLogo.png'),
-      "name": "Facebook",
-      "userName": "coolguy21",
-      "password": "bruh"
-    },
-    {
-      "src": require('../../public/assets/twitterLogo.png'),
-      "name": "Twitter",
-      "userName": "wow",
-      "password": "bruh"
-    },
-    {
-      "src": require('../../public/assets/wellsfargoLogo.png'),
-      "name": "WellsFargo",
-      "userName": "bankAccount",
-      "password": "bruh"
-    }
+    digital: [
+      {
+        src: require("../../public/assets/facebookLogo.png"),
+        name: "Facebook",
+        userName: "coolguy21",
+        password: "bruh"
+      },
+      {
+        src: require("../../public/assets/twitterLogo.png"),
+        name: "Twitter",
+        userName: "wow",
+        password: "bruh"
+      },
+      {
+        src: require("../../public/assets/wellsfargoLogo.png"),
+        name: "WellsFargo",
+        userName: "bankAccount",
+        password: "bruh"
+      }
     ]
-  }
+  };
 
   componentDidMount() {
     // NOTE: Jimmy  put call here
   }
 
-  onDrop = (files) => {
-
-    console.log(files)
+  onDrop = files => {
+    console.log(files);
 
     const formData = new FormData();
 
     //todo: roll in a map
-    formData.append('file', files[0]);
+    formData.append("file", files[0]);
 
     uploadWireframe(formData);
 
-
     //temp approach... change to event driven approach
     setTimeout(() => {
-      console.log("refreshing if it was event based...")
-      getStartingObj()
-    }, 10000)
-
-
-
-  }
+      console.log("refreshing if it was event based...");
+      getStartingObj();
+    }, 10000);
+  };
 
   handleRoute = () => {
     console.log("bruh");
     switch (this.state.mode) {
       case "friends":
-        return this.renderFriends()
+        return this.renderFriends();
         break;
       case "will":
-        return this.renderWill()
+        return this.renderWill();
         break;
       case "digital":
-        return this.renderDigital()
+        return this.renderDigital();
         break;
       case "treasure":
-        return this.renderTreasure()
+        return this.renderTreasure();
         break;
       default:
-
     }
-  }
-
-
+  };
 
   renderFriends = () => {
     return (
       <div>
         <FriendSlider friends={this.state.friends} />
-        <img className="addBenefactorButton" src={require('../../public/assets/addBenefactor.png')} alt=""/>
+        <img
+          className="addBenefactorButton"
+          src={require("../../public/assets/addBenefactor.png")}
+          alt=""
+        />
       </div>
-    )
-  }
+    );
+  };
   renderWill = () => {
-    return (<div className="willDiv">
-              <embed width="600px" height="600px" name="plugin" id="plugin" src="https://ipfs.infura.io/ipfs/QmRKvRDwtSWy68qncZ5pbXSQib1a6QmwX55YzaqMhQ8qpM" type="application/pdf" internalinstanceid="7"/>
-              <img className="addeWillButton" src={require('../../public/assets/addItem.png')} alt=""/>
-            </div>)
-  }
+    return (
+      <div className="willDiv">
+        <embed
+          width="600px"
+          height="600px"
+          name="plugin"
+          id="plugin"
+          src="https://ipfs.infura.io/ipfs/QmRKvRDwtSWy68qncZ5pbXSQib1a6QmwX55YzaqMhQ8qpM"
+          type="application/pdf"
+          internalinstanceid="7"
+        />
+        <img
+          className="addeWillButton"
+          src={require("../../public/assets/addItem.png")}
+          alt=""
+        />
+      </div>
+    );
+  };
   renderDigital = () => {
     return (
       <div>
         <DigitalSlider digital={this.state.digital} />
-        <img className="addBenefactorButton" src={require('../../public/assets/addService.png')} alt=""/>
+        <img
+          className="addBenefactorButton"
+          src={require("../../public/assets/addService.png")}
+          alt=""
+        />
       </div>
-    )
-  }
+    );
+  };
+
   renderTreasure = () => {
     return (
       <div>
-        <SimpleSlider/>
-        <img className="addBenefactorButton" src={require('../../public/assets/addTreasure.png')} alt=""/>
+        <SimpleSlider />
+        <img
+          className="addBenefactorButton"
+          src={require("../../public/assets/addTreasure.png")}
+          alt=""
+        />
       </div>
-    )
-  }
+    );
+  };
 
-  handleClick = (e) => {
+  handleClick = e => {
     this.setState({
       mode: e.target.id
     });
-  }
+  };
 
   renderBubbles = () => {
     return (
       <div>
-        <img className="dashboardButton" id='friends' src={require('../../public/assets/People.png')} onClick={this.handleClick} />
-        <img className="treasureChestButton" id='will' src={require('../../public/assets/myWill.png')} onClick={this.handleClick} />
-        <img className="circlesButton" id="digital" src={require('../../public/assets/digital.png')} onClick={this.handleClick} />
-        <img className="circlesButton" id='treasure' src={require('../../public/assets/treasureChest.png')} onClick={this.handleClick} />
+        <img
+          className="dashboardButton"
+          id="friends"
+          src={require("../../public/assets/People.png")}
+          onClick={this.handleClick}
+        />
+        <img
+          className="treasureChestButton"
+          id="will"
+          src={require("../../public/assets/myWill.png")}
+          onClick={this.handleClick}
+        />
+        <img
+          className="circlesButton"
+          id="digital"
+          src={require("../../public/assets/digital.png")}
+          onClick={this.handleClick}
+        />
+        <img
+          className="circlesButton"
+          id="treasure"
+          src={require("../../public/assets/treasureChest.png")}
+          onClick={this.handleClick}
+        />
       </div>
-    )
-  }
+    );
+  };
 
   checkLogin = () => {
-    if(!localStorage.loggedIn){
-      return <Redirect to="/login"/>
+    if (!localStorage.loggedIn) {
+      return <Redirect to="/login" />;
     }
-  }
+  };
 
   render() {
+    return (
+      <div>
+        {this.checkLogin()}
 
-    return(
-        <div>
-          {this.checkLogin()}
-
-          <div className='app'>
-            <Row>
-              <Col md={12} className="titleName">
-                <img className="logoName" src={require('../../public/assets/Logo.png')}/>
-              </Col>
-            </Row>
-            <Row>
-              <Col md={1} className="bubblesDiv">
-                {this.renderBubbles()}
-              </Col>
-              <Col md={10} className="willOverview">
-                {this.handleRoute()}
-                {/* <Row>
+        <div className="app">
+          <Row>
+            <Col md={12} className="titleName">
+              <img
+                className="logoName"
+                src={require("../../public/assets/Logo.png")}
+              />
+            </Col>
+          </Row>
+          <Row>
+            <Col md={1} className="bubblesDiv">
+              {this.renderBubbles()}
+            </Col>
+            <Col md={10} className="willOverview">
+              {this.handleRoute()}
+              {/* <Row>
                   <Col md={6}>
                     <div>MY WILL OVERVIEW</div>
                     <div>last edited by you</div>
@@ -248,8 +294,8 @@ class App extends Component {
                     </div>
                   </Col>
                 </Row> */}
-              </Col>
-              {/* <Col md={5} className="rightCloumn" >
+            </Col>
+            {/* <Col md={5} className="rightCloumn" >
                 <Row className="digitalShit">
                   digital Shit
                 </Row>
@@ -257,9 +303,9 @@ class App extends Component {
                   Memories
                 </Row>
               </Col> */}
-            </Row>
+          </Row>
 
-            {/* <Row>
+          {/* <Row>
               <Col md={5} mdOffset={1} className="willDetails">
                 will Details
               </Col>
@@ -267,13 +313,9 @@ class App extends Component {
                 <img className="addIcon" src={require("../../public/assets/addIcon.png")}/>
               </Col>
             </Row> */}
+        </div>
 
-          </div>
-
-
-
-
-          {/* {this.state.showTreasure ?
+        {/* {this.state.showTreasure ?
             <div>
               <SimpleSlider/>
               <Dropzone className="dropzone" onDrop={this.onDrop.bind(this)}>
@@ -283,16 +325,16 @@ class App extends Component {
             </div>
             :
              } */}
+        {ChatStream}
 
-
-
-
-             <img className="waveImage" src={require('../../public/assets/Wave.png')} alt=""/>
-        </div>
-
-        )
-
+        <img
+          className="waveImage"
+          src={require("../../public/assets/Wave.png")}
+          alt=""
+        />
+      </div>
+    );
   }
 }
 
-export default App
+export default App;
