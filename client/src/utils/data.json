@@ -1,0 +1,46 @@
+{
+  "userId": "jsmith01",
+  "name": "John Smith",
+  "age": 62,
+  "benefitions": [
+    { "name": "Tim Smith", "relationship": "son" },
+    { "name": "Kim Smith", "relationship": "daughter" }
+  ],
+  "digital": [
+    {
+      "service": "facebook",
+      "id": "jsmith1",
+      "password": "jsmith123"
+    },
+    {
+      "service": "instagram",
+      "id": "jsmith1",
+      "password": "jsmith123"
+    },
+    {
+      "service": "bank",
+      "id": "021000021",
+      "password": "011401533"
+    },
+    {
+      "service": "btc",
+      "id": "1LXirtTfe9XCx4k15HELCQktXVZERabivT",
+      "password": "5KV4eiiuHA45znPJWi85jL4p6riHKMySY9281NUDgk1NE2JY7bj"
+    }
+  ],
+  "distribution": ["QmXNb7S2e2wKuQPekWFmhM4Kahs2ievofE3W13xZcMcCox"],
+  "memory": [
+    {
+      "type": "photo",
+      "address": "QmRJQU2uU6rAxhKeCNZpPn5JoZ5rcroHWpGYuBgtj8oR37"
+    },
+    {
+      "type": "video",
+      "address": "QmQwZvjYr33CTgZcprzbT3frf33UyX2tzHDak22XpzJbhT"
+    },
+    {
+      "type": "sound",
+      "address": "QmUPxDVCA5pUoKxxKqfCH1kAWk4Lkx45RfTM91jLFLBZqr"
+    }
+  ]
+}

@@ -19,26 +19,67 @@ import Dropzone from "react-dropzone";
 
 import SimpleSlider from "../microcomponents/slider";
 
-import { ipfs, ipfsAddress } from "../utils/ipfs";
+// import { ipfs, ipfsAddress } from "../utils/ipfs";
 
 class App extends Component {
   state = {
-    showTreasure: false,
-    data: {}
+    showTreasure: false
   };
 
-  getter = _query => {
-    ipfs.files.get(_query, (err, _file) => {
-      //console.log(_file[0].content.toString("utf8"));
-      this.setState({ data: _file[0].content.toString("utf8") }, () => {
-        console.log(this.state.data);
-      });
-    });
-  };
+  // getter = _query => {
+  //   ipfs.files.get(_query, (err, _file) => {
+  //     let obj = JSON.parse(_file[0].content.toString("utf8"));
+  //     console.log(obj.digital);
+  //     this.setState(
+  //       {
+  //         digital: obj.digital,
+  //         distribution: obj.distribution,
+  //         memory: obj.memory
+  //       },
+  //       () => {
+  //         console.log(this.state.digital);
+  //         console.log(this.state.distribution);
+  //         console.log(this.state.memory);
+  //       }
+  //     );
+  //   });
+  // };
+
+  // uploader = (_file, _type) => {
+  //   let content = _file;
+  //   content = new Buffer(content);
+  //   ipfs.files.add(
+  //     content,
+  //     function(err, res) {
+  //       //console.log(err, res);
+  //       let result = res[0].path;
+  //       console.log(result);
+  //       if (_type == 1) {
+  //         console.log(this.state.digital);
+  //         newStateArray.push(result);
+  //         this.setState({ digital: newStateArray });
+  //       } else if (_type == 2) {
+  //         let arr = [];
+  //         arr = this.state.distribution;
+  //         arr.push(res[0].path);
+  //         this.setState({ distribution: arr });
+  //       } else if (_type == 3) {
+  //         let arr = [];
+  //         arr = this.state.memory;
+  //         arr.push(res[0].path);
+  //         this.setState({ memory: arr });
+  //       }
+  //     },
+  //     () => {
+  //       console.log(this.state.data);
+  //     }
+  //   );
+  // };
+
   componentDidMount() {
     // NOTE: Jimmy  put call here
-    console.log(ipfsAddress);
-    this.getter(ipfsAddress);
+    // console.log(this.state.address);
+    // this.getter(this.state.address);
   }
 
   onDrop = files => {
@@ -68,7 +109,6 @@ class App extends Component {
     return (
       <div>
         {this.checkLogin()}
-
         {this.showTreasure ? (
           <div>
             <SimpleSlider />
@@ -107,14 +147,13 @@ class App extends Component {
             </Row>
           </div>
         )}
-
-        <SimpleSlider />
-
-        <div>sselect some dependets and what they get</div>
-
+        // <SimpleSlider />
+        // <div>sselect some dependets and what they get</div>
+        //{" "}
         <Dropzone className="dropzone" onDrop={this.onDrop.bind(this)}>
-          <h5>Upload stuff</h5>
-          <p />
+          // <h5>Upload stuff</h5>
+          // <p />
+          //{" "}
         </Dropzone>
       </div>
     );
