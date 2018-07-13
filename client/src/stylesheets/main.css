@@ -3,6 +3,10 @@
   margin-left: 40px;
 }
 
+html * {
+   font-family: Poppins !important;
+}
+
 
 .logInContent {
   margin-left: 45%;
@@ -14,27 +18,74 @@
   height: 100px;
 }
 
+.logoName {
+  width: 150px;
+  height: 40px;
+}
+
 .sliderDiv {
   display: flex !important;
   justify-content: center !important;
 }
 
 .titleName {
-  height: 50px;
-  margin-top: 20px;
+  height: 70px;
+  margin-top: 80px;
+}
+
+.dashboardButton {
+  border: 1px solid #ccc!important;
+  margin-bottom: 10px;
+  border-radius: 75px;
+  width: 75px;
+  height: 75px;
+}
+
+.willTable {
+  height: 100px;
+  overflow: scroll;
+  margin-top: 10px;
+}
+
+.willOverviewInnerDiv {
+  text-align: right
+}
+
+.treasureChestButton {
+  border: 1px solid #ccc!important;
+  border-radius: 75px;
+  margin-bottom: 10px;
+  width: 75px;
+  height: 75px;
+}
+
+.circlesButton {
+  border: 1px solid #ccc!important;
+  margin-bottom: 10px;
+  border-radius: 75px;
+  width: 75px;
+  height: 75px;
 }
 
 .bubblesDiv {
-  border: 1px solid #ccc!important;
-  border-radius: 16px;
   height: 300px;
 }
 
 .willOverview {
-  border: 1px solid #ccc!important;
+  /* border: 1px solid #ccc!important;
   border-radius: 16px;
-  height: 300px;
+  min-height: 500px;
+  height: auto
+  background-color: white; */
+}
 
+.friendDivName {
+  text-align: center;
+  margin-top: 70px;
+}
+
+.rightCloumn {
+  margin-left: 20px
 }
 
 .digitalShit {
@@ -43,16 +94,42 @@
   height: 150px;
 }
 
+.friendDiv {
+  border: 1px solid #ccc!important;
+  border-radius: 16px;
+  width: 400px !important;
+  height: 400px !important;
+  margin-left: 300px;
+  text-align: center;
+}
+
 .memories {
   border: 1px solid #ccc!important;
   border-radius: 16px;
   height: 300px;
+  margin-top: 15px;
+}
+
+.waveImage {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: -1;
 }
 
 .willDetails {
   border: 1px solid #ccc!important;
+  margin-top: -150px;
   border-radius: 16px;
   height: 300px;
+}
+.addIcon {
+  height: 100px;
+  width: 100px;
+}
+
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+  font-size: 12px;
 }
 
 .idkButton {
