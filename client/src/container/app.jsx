@@ -19,11 +19,8 @@ import Dropzone from "react-dropzone";
 
 import SimpleSlider from "../microcomponents/slider";
 
-<<<<<<< HEAD
 //import { ipfsAddress, uploader, getter } from "../utils/ipfs";
 
-=======
->>>>>>> joseph-work
 class App extends Component {
   state = {
     showTreasure: false
@@ -62,67 +59,6 @@ class App extends Component {
       <div>
         {this.checkLogin()}
 
-<<<<<<< HEAD
-    return(
-        <div>
-          {this.checkLogin()}
-
-
-          {this.showTreasure ?
-            <div>
-              <SimpleSlider/>
-              <Dropzone className="dropzone" onDrop={this.onDrop.bind(this)}>
-                <h5>Upload stuff</h5>
-                <p></p>
-              </Dropzone>
-            </div>
-            :
-            <div className='app'>
-              <Row>
-                <Col md={12} className="titleName">
-                  WILMA
-                </Col>
-              </Row>
-              <Row>
-                <Col md={1} className="bubblesDiv">
-                  bubles
-                </Col>
-                <Col md={5} className="willOverview">
-                  will OverView
-                </Col>
-                <Col md={5} >
-                  <Row className="digitalShit">
-                    digital Shit
-                  </Row>
-                  <Row className="memories">
-                    Memories
-                  </Row>
-                </Col>
-              </Row>
-
-              <Row>
-                <Col md={5} mdOffset={1} className="willDetails">
-                  will
-                </Col>
-                <Col md={1} mdOffset={8} className="idkButton">
-                  button
-                </Col>
-              </Row>
-
-            </div> }
-
-
-
-
-        <SimpleSlider />
-
-        <div>sselect some dependets and what they get</div>
-
-        <Dropzone className="dropzone" onDrop={this.onDrop.bind(this)}>
-          <h5>Upload stuff</h5>
-          <p />
-        </Dropzone>
-=======
         {this.showTreasure ? (
           <div>
             <SimpleSlider />
@@ -161,7 +97,15 @@ class App extends Component {
             </Row>
           </div>
         )}
->>>>>>> joseph-work
+
+        <SimpleSlider />
+
+        <div>sselect some dependets and what they get</div>
+
+        <Dropzone className="dropzone" onDrop={this.onDrop.bind(this)}>
+          <h5>Upload stuff</h5>
+          <p />
+        </Dropzone>
       </div>
     );
   }
