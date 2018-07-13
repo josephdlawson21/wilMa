@@ -18,6 +18,8 @@ import Dropzone from 'react-dropzone'
 
 import SimpleSlider from "../microcomponents/slider";
 import FriendSlider from "../microcomponents/friendSlider";
+import DigitalSlider from "../microcomponents/digitalSlider";
+import TreasureSlider from "../microcomponents/treasureSlider";
 
 
 
@@ -27,19 +29,41 @@ class App extends Component {
     showTreasure: false,
     mode: "friends",
     friends: [ {
+      "src": "https://srkheadshotday.com/wp-content/uploads/Mike_Fitzgibbons_Headshot_15E4437.jpg",
       "name": "John Williams",
       "email": "Jwilliams@gmail.com",
       "relationship": "Brother"
     },
     {
+      "src": "https://srkheadshotday.com/wp-content/uploads/Michael_Schwarz_Headshot_1A1704.jpg",
       "name": "Bill Williams",
       "email": "Bwilliams@gmail.com",
       "relationship": "uncle"
     },
     {
-      "name": "Chris Williams",
+      "src": "https://srkheadshotday.com/wp-content/uploads/Isabelle_Pawlik_Headshot_16C3282_SQ1.jpg",
+      "name": "Chloe Williams",
       "email": "Cwilliams@gmail.com",
-      "relationship": "nephew"
+      "relationship": "wife"
+    }
+    ],
+    digital: [ {
+      "src": require('../../public/assets/facebookLogo.png'),
+      "name": "Facebook",
+      "userName": "coolguy21",
+      "password": "bruh"
+    },
+    {
+      "src": require('../../public/assets/twitterLogo.png'),
+      "name": "Twitter",
+      "userName": "wow",
+      "password": "bruh"
+    },
+    {
+      "src": require('../../public/assets/wellsfargoLogo.png'),
+      "name": "WellsFargo",
+      "userName": "bankAccount",
+      "password": "bruh"
     }
     ]
   }
@@ -90,10 +114,13 @@ class App extends Component {
     }
   }
 
+
+
   renderFriends = () => {
     return (
       <div>
-        <FriendSlider friends={this.state.friends}/>
+        <FriendSlider friends={this.state.friends} />
+        <img className="addBenefactorButton" src={require('../../public/assets/addBenefactor.png')} alt=""/>
       </div>
     )
   }
@@ -101,7 +128,12 @@ class App extends Component {
     return <div>will</div>
   }
   renderDigital = () => {
-    return <div>didgital</div>
+    return (
+      <div>
+        <DigitalSlider digital={this.state.digital} />
+        <img className="addBenefactorButton" src={require('../../public/assets/addService.png')} alt=""/>
+      </div>
+    )
   }
   renderTreasure = () => {
     return <div>treasure</div>

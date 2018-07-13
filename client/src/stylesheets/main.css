@@ -59,6 +59,11 @@ html * {
   height: 75px;
 }
 
+.friendInfo {
+  margin-left: 40px;
+  text-align: left;
+}
+
 .circlesButton {
   border: 1px solid #ccc!important;
   margin-bottom: 10px;
@@ -80,8 +85,26 @@ html * {
 }
 
 .friendDivName {
-  text-align: center;
-  margin-top: 70px;
+  background-color: rgba(235, 235, 235);
+  border: 0;
+  border-radius: 7px;
+  padding-left: 10px;
+  margin-top: 0px;
+  height: 40px;
+  width: 347px;
+}
+
+.friendPic {
+  border-radius: 75px;
+  object-fit: cover;
+  width: 150px;
+  height: 150px;
+  margin-left: 130px;
+  margin-top: -70px;
+}
+
+.addBenefactorButton {
+  margin-left: 70%;
 }
 
 .rightCloumn {
@@ -95,11 +118,28 @@ html * {
 }
 
 .friendDiv {
-  border: 1px solid #ccc!important;
-  border-radius: 16px;
+  overflow: visible;
   width: 400px !important;
   height: 400px !important;
+  margin-bottom: 20px;
+  background: #FFFFFF;
+  box-shadow: 0 10px 40px 0 rgba(0,0,0,0.10);
+  border-radius: 20px;
   margin-left: 300px;
+  margin-top: 70px;
+  text-align: center;
+}
+
+.digitalDiv {
+  overflow: visible;
+  width: 400px !important;
+  height: 420px !important;
+  margin-bottom: 20px;
+  background: #FFFFFF;
+  box-shadow: 0 10px 40px 0 rgba(0,0,0,0.10);
+  border-radius: 20px;
+  margin-left: 300px;
+  margin-top: 70px;
   text-align: center;
 }
 

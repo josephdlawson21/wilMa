@@ -9,12 +9,29 @@ class FriendSlider extends React.Component {
     return this.props.friends.map(friend => {
       return (
         <div className="friendDiv">
-          <input className="friendDivName" type="text" value={friend.name} onChange={this.props.handleChange}/>
-          <div className="friendDivName">
-            {friend.email}
-          </div>
-          <div className="friendDivName">
-            {friend.relationship}
+          <img className="friendPic" src={friend.src} alt=""/>
+          <div>{friend.name}</div>
+
+          <br/>
+          <div className="friendInfo">
+            <label>Full Name</label>
+            <br/>
+            <input className="friendDivName" type="text" defaultValue={friend.name} />
+            <br/>
+            <label>Email</label>
+            <br/>
+            <input className="friendDivName" type="text" defaultValue={friend.email} />
+            <br/>
+            <label>Relationship</label>
+            <br/>
+            {/* <input className="friendDivName" type="text" defaultValue={friend.relationship} /> */}
+            <select className="friendDivName">
+              <option >{friend.relationship}</option>
+              <option >husband</option>
+              <option >brother</option>
+              <option >sister</option>
+
+            </select>
           </div>
         </div>
       )
