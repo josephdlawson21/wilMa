@@ -6,6 +6,7 @@ import Slider from "react-slick";
 class SimpleSlider extends React.Component {
   render() {
     var settings = {
+      adaptiveHeight: true
     };
     return (
       <Slider {...settings}>
@@ -23,7 +24,7 @@ class SimpleSlider extends React.Component {
           </video>
         </div>
         <div className="sliderDiv">
-          <embed width="100%" height="300px" name="plugin" id="plugin" src="https://ipfs.infura.io/ipfs/QmQkGojWVKm1PuywNqhs3Du2qi5ctWR82jnSp7KQy9qQF3" type="application/pdf" internalinstanceid="7"/>
+          <embed width="100%" height="600px" name="plugin" id="plugin" src="https://ipfs.infura.io/ipfs/QmQkGojWVKm1PuywNqhs3Du2qi5ctWR82jnSp7KQy9qQF3" type="application/pdf" internalinstanceid="7"/>
         </div>
         <div>
           <h3>5</h3>

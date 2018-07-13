@@ -27,6 +27,10 @@ class App extends Component {
 
   }
 
+  componentDidMount() {
+    // NOTE: Jimmy  put call here
+  }
+
   onDrop = (files) => {
 
     console.log(files)
