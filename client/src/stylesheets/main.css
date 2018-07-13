@@ -1,4 +1,8 @@
 
+.app {
+  margin-left: 40px;
+}
+
 
 .logInContent {
   margin-left: 45%;
@@ -13,4 +17,44 @@
 .sliderDiv {
   display: flex !important;
   justify-content: center !important;
+}
+
+.titleName {
+  height: 50px;
+  margin-top: 20px;
+}
+
+.bubblesDiv {
+  border: 1px solid #ccc!important;
+  border-radius: 16px;
+  height: 300px;
+}
+
+.willOverview {
+  border: 1px solid #ccc!important;
+  border-radius: 16px;
+  height: 300px;
+
+}
+
+.digitalShit {
+  border: 1px solid #ccc!important;
+  border-radius: 16px;
+  height: 150px;
+}
+
+.memories {
+  border: 1px solid #ccc!important;
+  border-radius: 16px;
+  height: 300px;
+}
+
+.willDetails {
+  border: 1px solid #ccc!important;
+  border-radius: 16px;
+  height: 300px;
+}
+
+.idkButton {
+
 }

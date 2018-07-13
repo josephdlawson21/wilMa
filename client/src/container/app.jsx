@@ -21,10 +21,8 @@ import SimpleSlider from "../microcomponents/slider";
 
 class App extends Component {
 
-  constructor(props) {
-      super(props);
-
-
+  state = {
+    showTreasure: false
   }
 
   componentDidMount() {
@@ -66,20 +64,51 @@ class App extends Component {
           {this.checkLogin()}
 
 
-          <div>
-            hello {localStorage.name}
-          </div>
+          {this.showTreasure ?
+            <div>
+              <SimpleSlider/>
+              <Dropzone className="dropzone" onDrop={this.onDrop.bind(this)}>
+                <h5>Upload stuff</h5>
+                <p></p>
+              </Dropzone>
+            </div>
+            :
+            <div className='app'>
+              <Row>
+                <Col md={12} className="titleName">
+                  WILMA
+                </Col>
+              </Row>
+              <Row>
+                <Col md={1} className="bubblesDiv">
+                  bubles
+                </Col>
+                <Col md={5} className="willOverview">
+                  will OverView
+                </Col>
+                <Col md={5} >
+                  <Row className="digitalShit">
+                    digital Shit
+                  </Row>
+                  <Row className="memories">
+                    Memories
+                  </Row>
+                </Col>
+              </Row>
 
-          <SimpleSlider/>
+              <Row>
+                <Col md={5} mdOffset={1} className="willDetails">
+                  will
+                </Col>
+                <Col md={1} mdOffset={8} className="idkButton">
+                  button
+                </Col>
+              </Row>
 
-          <div>
-            sselect some dependets and what they get
-          </div>
+            </div> }
 
-          <Dropzone className="dropzone" onDrop={this.onDrop.bind(this)}>
-            <h5>Upload stuff</h5>
-            <p></p>
-          </Dropzone>
+
+
 
         </div>
 

@@ -41,4 +41,3 @@ ReactDOM.render(
     </Provider>,
   document.getElementById('app') || document.createElement('div')
 );
-
