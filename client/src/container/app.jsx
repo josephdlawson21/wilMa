@@ -132,7 +132,9 @@ class App extends Component {
             <br/>
             <label>Relationship</label>
             <br/>
-            {/* <input className="friendDivName" type="text" defaultValue={friend.relationship} /> */}
+            <input className="friendDivName" type="text" />
+            <br/>
+            <br/>
             <select className="friendDivName">
               <option >Uncle</option>
               <option >husband</option>
@@ -146,6 +148,10 @@ class App extends Component {
         return (
           <div className="friendsModalInfo">
             <h2>Add a Service</h2>
+            <label>Service Name</label>
+            <br/>
+            <input className="friendDivName" type="text"/>
+            <br/>
             <label>User Name</label>
             <br/>
             <input className="friendDivName" type="text"/>
@@ -182,10 +188,31 @@ class App extends Component {
               <option >Picture</option>
             </select>
             <br/>
+            <label>Benieficiary</label>
+            <br/>
+            <select className="friendDivName">
+              <option >Bill Stweart</option>
+              <option >John Mayer</option>
+              <option >Phillip Morisson</option>
+              <option >Jimmy Page</option>
+            </select>
+            <br/>
             <br/>
             <label> Upload Here</label>
             <Dropzone className="dropzone" onDrop={this.onDrop.bind(this)}>
-               <h5>Drag and Drop or CLick</h5>
+               <h5>Drag and Drop or Click</h5>
+               <p></p>
+             </Dropzone>
+          </div>
+        )
+        break;
+      case "will":
+        return (
+          <div className="friendsModalInfo">
+            <h2>Upload the completed Will</h2>
+            <br/>
+            <Dropzone className="dropzone" onDrop={this.onDrop.bind(this)}>
+               <h5>Drag and Drop or Click</h5>
                <p></p>
              </Dropzone>
           </div>
@@ -209,7 +236,7 @@ class App extends Component {
   renderWill = () => {
     return (<div className="willDiv">
               <embed width="600px" height="600px" name="plugin" id="plugin" src="https://ipfs.infura.io/ipfs/QmRKvRDwtSWy68qncZ5pbXSQib1a6QmwX55YzaqMhQ8qpM" type="application/pdf" internalinstanceid="7"/>
-              {/* <img onClick={this.handleShow}  className="addeWillButton" src={require('../../public/assets/addItem.png')} alt=""/> */}
+              <img onClick={this.handleShow}  className="addeWillButton" src={require('../../public/assets/addItem.png')} alt=""/>
             </div>)
   }
   renderDigital = () => {
