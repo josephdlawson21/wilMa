@@ -19,22 +19,26 @@ import Dropzone from "react-dropzone";
 
 import SimpleSlider from "../microcomponents/slider";
 
-//import { ipfsAddress, uploader, getter } from "../utils/ipfs";
+import { ipfs, ipfsAddress } from "../utils/ipfs";
 
 class App extends Component {
-<<<<<<< Updated upstream
-
   state = {
-    showTreasure: false
-=======
-  constructor(props) {
-    super(props);
->>>>>>> Stashed changes
-  }
+    showTreasure: false,
+    data: {}
+  };
 
+  getter = _query => {
+    ipfs.files.get(_query, (err, _file) => {
+      //console.log(_file[0].content.toString("utf8"));
+      this.setState({ data: _file[0].content.toString("utf8") }, () => {
+        console.log(this.state.data);
+      });
+    });
+  };
   componentDidMount() {
     // NOTE: Jimmy  put call here
-    //console.log(ipfsAddress);
+    console.log(ipfsAddress);
+    this.getter(ipfsAddress);
   }
 
   onDrop = files => {
@@ -65,60 +69,44 @@ class App extends Component {
       <div>
         {this.checkLogin()}
 
-<<<<<<< Updated upstream
-    return(
-        <div>
-          {this.checkLogin()}
+        {this.showTreasure ? (
+          <div>
+            <SimpleSlider />
+            <Dropzone className="dropzone" onDrop={this.onDrop.bind(this)}>
+              <h5>Upload stuff</h5>
+              <p />
+            </Dropzone>
+          </div>
+        ) : (
+          <div className="app">
+            <Row>
+              <Col md={12} className="titleName">
+                WILMA
+              </Col>
+            </Row>
+            <Row>
+              <Col md={1} className="bubblesDiv">
+                bubles
+              </Col>
+              <Col md={5} className="willOverview">
+                will OverView
+              </Col>
+              <Col md={5}>
+                <Row className="digitalShit">digital Shit</Row>
+                <Row className="memories">Memories</Row>
+              </Col>
+            </Row>
 
-
-          {this.showTreasure ?
-            <div>
-              <SimpleSlider/>
-              <Dropzone className="dropzone" onDrop={this.onDrop.bind(this)}>
-                <h5>Upload stuff</h5>
-                <p></p>
-              </Dropzone>
-            </div>
-            :
-            <div className='app'>
-              <Row>
-                <Col md={12} className="titleName">
-                  WILMA
-                </Col>
-              </Row>
-              <Row>
-                <Col md={1} className="bubblesDiv">
-                  bubles
-                </Col>
-                <Col md={5} className="willOverview">
-                  will OverView
-                </Col>
-                <Col md={5} >
-                  <Row className="digitalShit">
-                    digital Shit
-                  </Row>
-                  <Row className="memories">
-                    Memories
-                  </Row>
-                </Col>
-              </Row>
-
-              <Row>
-                <Col md={5} mdOffset={1} className="willDetails">
-                  will
-                </Col>
-                <Col md={1} mdOffset={8} className="idkButton">
-                  button
-                </Col>
-              </Row>
-
-            </div> }
-
-
-
-=======
-        <div>hello {localStorage.name}</div>
->>>>>>> Stashed changes
+            <Row>
+              <Col md={5} mdOffset={1} className="willDetails">
+                will
+              </Col>
+              <Col md={1} mdOffset={8} className="idkButton">
+                button
+              </Col>
+            </Row>
+          </div>
+        )}
 
         <SimpleSlider />
 
