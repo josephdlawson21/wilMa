@@ -22,14 +22,9 @@ import SimpleSlider from "../microcomponents/slider";
 //import { ipfsAddress, uploader, getter } from "../utils/ipfs";
 
 class App extends Component {
-<<<<<<< Updated upstream
 
   state = {
     showTreasure: false
-=======
-  constructor(props) {
-    super(props);
->>>>>>> Stashed changes
   }
 
   componentDidMount() {
@@ -65,7 +60,6 @@ class App extends Component {
       <div>
         {this.checkLogin()}
 
-<<<<<<< Updated upstream
     return(
         <div>
           {this.checkLogin()}
@@ -116,9 +110,6 @@ class App extends Component {
 
 
 
-=======
-        <div>hello {localStorage.name}</div>
->>>>>>> Stashed changes
 
         <SimpleSlider />
 
