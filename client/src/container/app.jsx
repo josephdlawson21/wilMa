@@ -22,6 +22,8 @@ import FriendSlider from "../microcomponents/friendSlider";
 import DigitalSlider from "../microcomponents/digitalSlider";
 import TreasureSlider from "../microcomponents/treasureSlider";
 
+import {Launcher} from 'react-chat-window'
+
 
 
 class App extends Component {
@@ -29,6 +31,9 @@ class App extends Component {
   state = {
     showTreasure: false,
     mode: "friends",
+    messageList: [],
+    newMessagesCount: 0,
+    chatIsOpen: false,
     show: false,
     friends: [ {
       "src": "https://srkheadshotday.com/wp-content/uploads/Mike_Fitzgibbons_Headshot_15E4437.jpg",
@@ -91,10 +96,52 @@ class App extends Component {
       console.log("refreshing if it was event based...")
       getStartingObj()
     }, 10000)
-
-
-
   }
+
+  _onMessageWasSent(message) {
+  this.setState({
+    messageList: [...this.state.messageList, message]
+  })
+}
+
+_sendMessage(text) {
+  if (text.length > 0) {
+    const newMessagesCount = this.state.isOpen ? this.state.newMessagesCount : this.state.newMessagesCount + 1
+    this.setState({
+      newMessagesCount: newMessagesCount,
+      messageList: [...this.state.messageList, {
+        author: 'them',
+        type: 'text',
+        data: { text }
+      }]
+    })
+  }
+}
+
+_handleClick() {
+  this.setState({
+    chatIsOpen: !this.state.chatIsOpen,
+    newMessagesCount: 0
+  })
+}
+
+renderChat = () => {
+  return (
+    <Launcher
+      agentProfile={{
+        teamName: 'react-live-chat',
+        imageUrl: 'https://a.slack-edge.com/66f9/img/avatars-teams/ava_0001-34.png'
+      }}
+      onMessageWasSent={this._onMessageWasSent.bind(this)}
+      messageList={this.state.messageList}
+      className="chatThing"
+      newMessagesCount={this.state.newMessagesCount}
+      handleClick={this._handleClick.bind(this)}
+      isOpen={this.state.chatIsOpen}
+      showEmoji
+    />
+  )
+}
 
   handleRoute = () => {
     console.log("bruh");
@@ -294,6 +341,7 @@ class App extends Component {
           {this.checkLogin()}
 
           <div className='app'>
+            {/* {this.renderChat()} */}
             <Row>
               <Col md={12} className="titleName">
                 <img className="logoName" src={require('../../public/assets/Logo.png')}/>

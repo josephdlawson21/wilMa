@@ -23,6 +23,13 @@ html * {
   height: 40px;
 }
 
+.sc-header {
+  background-color: #4cdba2 !important;
+}
+.sc-launcher {
+  background-color: #4cdba2 !important;
+}
+
 .sliderDiv {
   display: flex !important;
   justify-content: center !important;
